@@ -1,0 +1,21 @@
+/* Compact left sidebar navigation so more menu items fit vertically. */
+.fi-sidebar .fi-sidebar-item-button {
+    min-height: 1.75rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.fi-sidebar .fi-sidebar-item-label {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.fi-sidebar .fi-sidebar-group-label {
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+}
+
+.fi-sidebar .fi-sidebar-item-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+}
