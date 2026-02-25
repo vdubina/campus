@@ -20,7 +20,7 @@ class CertificationResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentCheck;
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 80;
 
     public static function form(Schema $schema): Schema
     {
@@ -54,7 +54,7 @@ class CertificationResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return __('resources.groups.learning_ops');
+        return __('resources.groups.lms');
     }
 
     public static function getPages(): array

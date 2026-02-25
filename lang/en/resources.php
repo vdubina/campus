@@ -2,9 +2,9 @@
 
 return [
     'groups' => [
-        'sales_crm' => 'Sales CRM',
+        'sales_crm' => 'CRM Module',
         'access_control' => 'Access Control',
-        'lms' => 'LMS',
+        'lms' => 'LMS Module',
         'assessment' => 'Assessment',
         'learning_ops' => 'Learning Ops',
     ],

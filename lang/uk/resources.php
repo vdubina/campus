@@ -2,9 +2,9 @@
 
 return [
     'groups' => [
-        'sales_crm' => 'CRM Продажі',
+        'sales_crm' => 'Модуль CRM',
         'access_control' => 'Керування доступом',
-        'lms' => 'LMS',
+        'lms' => 'Модуль LMS',
         'assessment' => 'Оцінювання',
         'learning_ops' => 'Навчальні операції',
     ],

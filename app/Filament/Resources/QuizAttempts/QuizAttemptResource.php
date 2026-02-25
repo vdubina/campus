@@ -20,7 +20,7 @@ class QuizAttemptResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboard;
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 60;
 
     public static function form(Schema $schema): Schema
     {
@@ -54,7 +54,7 @@ class QuizAttemptResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return __('resources.groups.assessment');
+        return __('resources.groups.lms');
     }
 
     public static function getPages(): array
