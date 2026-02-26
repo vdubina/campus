@@ -8,6 +8,10 @@ Route::middleware('auth')->group(function (): void {
         ->name('admin.locale.switch');
 });
 
-Route::get('/{path?}', function () {
-    return response()->file(public_path('spa/index.html'));
-})->where('path', '^(?!(admin|api)(?:/|$)).*');
+Route::get('/', function () {
+    return response()->file(public_path('spa/home/index.html'));
+});
+
+Route::get('/courses/{path?}', function () {
+    return response()->file(public_path('spa/courses/index.html'));
+})->where('path', '.*');

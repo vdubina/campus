@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus CRM</title>
+  <link rel="icon" type="image/x-icon" href="/spa/home/favicon.ico">
+  <link rel="stylesheet" href="/spa/home/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container topbar">
+      <a href="/" class="brand" id="brand-link">
+        <img id="logo" alt="logo" class="logo" />
+        <span id="site-name" class="site-name">Campus CRM</span>
+      </a>
+      <div class="right-tools">
+        <nav>
+          <ul id="menu" class="menu"></ul>
+        </nav>
+        <button id="locale-toggle" class="btn btn-small" type="button">UK</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero-banner" class="hero-banner section">
+      <div class="container hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 id="hero-banner-title" class="hero-banner__title"></h1>
+          <p id="hero-banner-subtitle" class="hero-banner__subtitle"></p>
+          <a id="hero-banner-cta" class="hero-banner__cta" href="#courses"></a>
+        </div>
+        <aside class="hero-banner__stats">
+          <div id="hero-banner-count" class="hero-banner__count">10234</div>
+          <div id="hero-banner-count-label" class="hero-banner__count-label"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="who" class="section">
+      <div class="container">
+        <h2 id="who-title"></h2>
+        <div id="who-text" class="rich-content"></div>
+      </div>
+    </section>
+
+    <section id="mission" class="section alt">
+      <div class="container">
+        <h2 id="mission-title"></h2>
+        <div id="mission-text" class="rich-content"></div>
+      </div>
+    </section>
+
+    <section id="courses" class="section">
+      <div class="container">
+        <h2 id="courses-title">КУРСИ</h2>
+        <div id="courses-list" class="courses-list"></div>
+      </div>
+    </section>
+
+    <section id="specializations" class="section alt">
+      <div class="container">
+        <h2 id="specializations-title"></h2>
+        <div id="specializations-list" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="press" class="section">
+      <div class="container">
+        <h2 id="press-title"></h2>
+        <div id="press-list" class="logos"></div>
+      </div>
+    </section>
+
+    <section id="partners" class="section alt">
+      <div class="container">
+        <h2 id="partners-title"></h2>
+        <div id="partners-list" class="logos"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <h3 id="footer-title"></h3>
+      <div id="footer-text" class="rich-content"></div>
+      <p id="footer-contact"></p>
+      <ul id="footer-links" class="footer-links"></ul>
+    </div>
+  </footer>
+
+  <div id="enroll-modal" class="modal" aria-hidden="true">
+    <div id="enroll-backdrop" class="modal-backdrop"></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="enroll-modal-title">
+      <button id="enroll-close" class="modal-close" type="button" aria-label="Close">x</button>
+      <h2 id="enroll-modal-title">REGISTRATION FORM</h2>
+      <p id="enroll-course-name" class="modal-course-name"></p>
+
+      <form id="enroll-form" class="enroll-form">
+        <input id="enroll-course" name="course" type="hidden">
+        <label for="enroll-full-name" id="enroll-label-name">FULL NAME</label>
+        <input id="enroll-full-name" name="full_name" type="text" required placeholder="Enter the full name">
+
+        <label for="enroll-member-status" id="enroll-label-member">MEMBER STATUS</label>
+        <select id="enroll-member-status" name="member_status" required>
+          <option value="" id="enroll-member-default">Choose one of the options</option>
+          <option value="military" id="enroll-member-military">Military</option>
+          <option value="civilian" id="enroll-member-civilian">Civilian</option>
+          <option value="other" id="enroll-member-other">Other</option>
+        </select>
+
+        <label for="enroll-phone" id="enroll-label-phone">CONTACT NUMBER</label>
+        <input id="enroll-phone" name="phone" type="tel" required placeholder="+38 (000) 000 00 00">
+
+        <label for="enroll-email" id="enroll-label-email">E-MAIL ADDRESS</label>
+        <input id="enroll-email" name="email" type="email" required placeholder="Enter your email address">
+
+        <label class="modal-checkbox">
+          <input id="enroll-terms" name="terms" type="checkbox" required>
+          <span id="enroll-terms-text">I confirm that I have read the public offer</span>
+        </label>
+
+        <button id="enroll-submit" type="submit" class="modal-submit">REGISTER</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="/spa/home/app.js" defer></script>
+</body>
+</html>

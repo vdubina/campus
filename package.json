@@ -5,9 +5,10 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "spa:install": "npm --prefix ./spa install",
-        "spa:dev": "npm --prefix ./spa run dev",
-        "spa:build": "npm --prefix ./spa run build"
+        "spa:install": "npm --prefix ./spa/courses install",
+        "spa:dev": "npm --prefix ./spa/courses run dev",
+        "spa:build": "npm --prefix ./spa/courses run build",
+        "spa:home:build": "sh -c 'rm -rf ./public/spa/home && mkdir -p ./public/spa/home && cp -R ./spa/home/. ./public/spa/home/'"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

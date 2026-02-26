@@ -60,15 +60,23 @@ Default role seeded:
 
 - `Super Admin` (assigned to `admin@crm.local`)
 
-## Student SPA (React)
+## SPAs
 
-Student frontend SPA source is located at:
+Student SPA source:
 
-- `/spa`
+- `/spa/courses`
 
-Build output is generated to:
+Student SPA build output:
 
-- `/public/spa`
+- `/public/spa/courses`
+
+Home SPA source (copy of `kruk.in.ua`):
+
+- `/spa/home`
+
+Home SPA build output:
+
+- `/public/spa/home`
 
 Useful commands from project root:
 
@@ -76,12 +84,36 @@ Useful commands from project root:
 npm run spa:install
 npm run spa:dev
 npm run spa:build
+npm run spa:home:build
 ```
 
 Routing behavior:
 
 - `/admin/*` is reserved for Laravel Filament admin
-- Any non-admin GET route serves SPA shell from `public/spa/index.html`
+- `/` serves Home SPA (`public/spa/home/index.html`) by default, and can be overridden by CMS page with slug `home`
+- `/courses/*` serves Student SPA shell from `public/spa/courses/index.html`
+
+## CMS Module
+
+Filament includes `CMS Module -> CMS Pages` for managing page content.
+
+- Homepage is stored as CMS page with slug `home`
+- CMS page supports full `HTML`, optional custom `CSS`, custom `JS`, and meta fields
+- API endpoint for active pages: `GET /api/cms/pages/{slug}`
+
+Structured Home CMS resources are also available in admin:
+
+- `Settings` (logo, who/mission, section titles, footer)
+- `Top Menu`
+- `Courses Section` (linked to LMS Courses)
+- `Specializations`
+- `Press`
+- `Partners`
+- `Footer Links`
+
+Structured Home CMS API:
+
+- `GET /api/cms/home?locale=uk` (or `en`)
 
 ## About Laravel
 

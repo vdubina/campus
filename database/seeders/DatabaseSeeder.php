@@ -47,6 +47,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LmsDemoSeeder::class,
             CrmDemoSeeder::class,
+            CmsPageSeeder::class,
+            CmsContentSeeder::class,
         ]);
     }
 }

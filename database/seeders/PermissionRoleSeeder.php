@@ -30,6 +30,14 @@ class PermissionRoleSeeder extends Seeder
             'quiz_attempt',
             'enrollment',
             'certification',
+            'cms_page',
+            'cms_setting',
+            'cms_menu_item',
+            'cms_specialization',
+            'cms_press_item',
+            'cms_partner_item',
+            'cms_footer_link',
+            'cms_home_course',
         ];
 
         $resourceActions = ['view', 'create', 'update', 'delete'];

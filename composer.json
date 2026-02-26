@@ -7,12 +7,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "amidesfahani/filament-tinyeditor": "^4.0",
         "andreia/filament-nord-theme": "^3.1",
         "filament/filament": "^5.2",
+        "filament/spatie-laravel-media-library-plugin": "^5.2",
         "guava/calendar": "^3.0",
         "laravel/framework": "^12.0",
         "laravel/passport": "^13.5",
         "laravel/tinker": "^2.10.1",
+        "spatie/laravel-medialibrary": "^11.21",
         "spatie/laravel-permission": "^7.2"
     },
     "require-dev": {

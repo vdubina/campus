@@ -31,6 +31,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandLogo(asset('images/campus-crm-logo.png'))
+            ->darkModeBrandLogo(asset('images/campus-crm-logo-dark.png'))
+            ->brandLogoHeight('2.5rem')
             ->plugin(FilamentNordThemePlugin::make())
             ->userMenuItems([
                 MenuItem::make()
