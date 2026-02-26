@@ -18,6 +18,8 @@ use App\Models\Role;
 use App\Models\Student;
 use App\Models\Topic;
 use App\Models\User;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Repeater;
@@ -31,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Illuminate\Support\HtmlString;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +50,89 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::HEAD_END,
+            static fn (): HtmlString => new HtmlString(<<<'HTML'
+                <style>
+                    .fc .fc-dayGridMonth-view .fc-daygrid-day-frame {
+                        aspect-ratio: 1 / 1;
+                        min-height: 8.5rem;
+                    }
+
+                    .fi-sidebar-group-btn,
+                    .fi-sidebar-group-label,
+                    .fi-sidebar-group-collapse-btn,
+                    .fi-sidebar-group-dropdown-trigger-btn {
+                        color: rgb(239 60 61) !important;
+                    }
+
+                    .fi-sidebar-group-btn:hover,
+                    .fi-sidebar-group-btn:focus-visible {
+                        color: rgb(255 94 95) !important;
+                    }
+
+                    .fi-sidebar-item.fi-active > .fi-sidebar-item-btn,
+                    .fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-label,
+                    .fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-icon {
+                        color: #111 !important;
+                    }
+
+                    .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+                        background-color: rgba(17, 17, 17, 0.16) !important;
+                    }
+
+                    .dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn,
+                    .dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-label,
+                    .dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-icon {
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-primary,
+                    .fi-btn.fi-color-primary {
+                        background-color: #111 !important;
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-primary > .fi-icon,
+                    .fi-btn.fi-color-primary > .fi-icon {
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-primary.fi-force-enabled,
+                    .fi-btn.fi-color-primary.fi-force-enabled,
+                    .fi-btn.fi-color.fi-color-primary:not(.fi-disabled):not([disabled]):hover,
+                    .fi-btn.fi-color-primary:not(.fi-disabled):not([disabled]):hover {
+                        background-color: #000 !important;
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-primary:focus-visible,
+                    .fi-btn.fi-color-primary:focus-visible {
+                        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.16), 0 0 0 4px rgba(17, 17, 17, 0.5) !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-danger,
+                    .fi-btn.fi-color-danger {
+                        background-color: rgb(239 60 61) !important;
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-danger > .fi-icon,
+                    .fi-btn.fi-color-danger > .fi-icon {
+                        color: #fff !important;
+                    }
+
+                    .fi-btn.fi-color.fi-color-danger.fi-force-enabled,
+                    .fi-btn.fi-color-danger.fi-force-enabled,
+                    .fi-btn.fi-color.fi-color-danger:not(.fi-disabled):not([disabled]):hover,
+                    .fi-btn.fi-color-danger:not(.fi-disabled):not([disabled]):hover {
+                        background-color: rgb(255 94 95) !important;
+                        color: #fff !important;
+                    }
+                </style>
+            HTML)
+        );
+
         Gate::before(function (User $user, string $ability, mixed $arguments = null): ?bool {
             $actionByAbility = [
                 'viewAny' => 'view',
