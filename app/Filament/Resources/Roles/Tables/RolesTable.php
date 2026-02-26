@@ -16,11 +16,13 @@ class RolesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('guard_name')
-                    ->searchable(),
                 TextColumn::make('permissions.name')
                     ->badge()
-,
+                    ->wrap()
+                    ->width('600px')
+                    ->extraAttributes([
+                        'style' => 'max-width: 600px; white-space: normal;',
+                    ]),
                 TextColumn::make('users_count')
                     ->counts('users')
                     ->sortable(),

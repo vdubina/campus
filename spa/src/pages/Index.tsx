@@ -104,6 +104,12 @@ const Index = () => {
     setPage("quiz");
   };
 
+  const handleGoToDashboard = (): void => {
+    setPage("dashboard");
+    setActiveCourse(null);
+    quiz.restartQuiz();
+  };
+
   const handleSaveProfile = async (payload: {
     first_name: string;
     last_name: string;
@@ -132,10 +138,16 @@ const Index = () => {
       <div className="fixed inset-0 pointer-events-none" style={{ background: "var(--gradient-glow)" }} />
 
       <header className="relative z-10 flex items-center gap-3 px-6 py-4 border-b border-border/50">
-        <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
-        <span className="text-sm font-semibold tracking-wide">
-          ЦЕНТР ПІДГОТОВКИ ОПЕРАТОРІВ БПЛА <span className="text-primary">«КРУК»</span>
-        </span>
+        <button
+          type="button"
+          onClick={handleGoToDashboard}
+          className="flex items-center gap-3 text-left hover:opacity-90 transition-opacity"
+        >
+          <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
+          <span className="text-sm font-semibold tracking-wide">
+            ЦЕНТР ПІДГОТОВКИ ОПЕРАТОРІВ БПЛА <span className="text-primary">«КРУК»</span>
+          </span>
+        </button>
         <div className="ml-auto">
           <UserProfile
             student={authUser.student}

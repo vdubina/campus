@@ -7,11 +7,20 @@ use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Quiz;
 use App\Models\Student;
+use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class LmsOverview extends StatsOverviewWidget
 {
+    public static function canView(): bool
+    {
+        /** @var User|null $user */
+        $user = auth()->user();
+
+        return (bool) $user?->getAllPermissions()->contains('name', 'lms.dashboard.view');
+    }
+
     protected function getStats(): array
     {
         return [

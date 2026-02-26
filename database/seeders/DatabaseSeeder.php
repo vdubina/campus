@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            PermissionRoleSeeder::class,
+        ]);
+
         $admin = User::query()->updateOrCreate([
             'email' => 'admin@crm.local',
         ], [

@@ -4,11 +4,20 @@ namespace App\Filament\Widgets;
 
 use App\Models\Lead;
 use App\Models\Opportunity;
+use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class CrmOverview extends StatsOverviewWidget
 {
+    public static function canView(): bool
+    {
+        /** @var User|null $user */
+        $user = auth()->user();
+
+        return (bool) $user?->getAllPermissions()->contains('name', 'crm.dashboard.view');
+    }
+
     protected function getStats(): array
     {
         return [
