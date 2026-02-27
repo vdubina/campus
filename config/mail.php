@@ -115,4 +115,6 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'exception_to' => env('APP_EMAIL'),
+
 ];
