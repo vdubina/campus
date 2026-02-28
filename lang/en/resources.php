@@ -9,7 +9,7 @@ return [
         'assessment' => 'Assessment',
         'learning_ops' => 'Learning Ops',
     ],
-    'accounts' => ['singular' => 'Account', 'plural' => 'Accounts', 'navigation' => 'Accounts'],
+    'accounts' => ['singular' => 'Company', 'plural' => 'Companies', 'navigation' => 'Companies'],
     'contacts' => ['singular' => 'Contact', 'plural' => 'Contacts', 'navigation' => 'Contacts'],
     'leads' => ['singular' => 'Lead', 'plural' => 'Leads', 'navigation' => 'Leads'],
     'opportunities' => ['singular' => 'Opportunity', 'plural' => 'Opportunities', 'navigation' => 'Opportunities'],

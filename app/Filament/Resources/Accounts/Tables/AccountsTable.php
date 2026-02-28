@@ -15,17 +15,13 @@ class AccountsTable
     {
         return $table
             ->columns([
-                TextColumn::make('owner.name')
-                    ->searchable(),
                 TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('owner.name')
                     ->searchable(),
                 TextColumn::make('industry')
                     ->searchable(),
                 TextColumn::make('website')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->searchable(),
-                TextColumn::make('phone')
                     ->searchable(),
                 TextColumn::make('contacts_count')
                     ->counts('contacts')

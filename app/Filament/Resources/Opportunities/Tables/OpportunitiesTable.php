@@ -15,15 +15,13 @@ class OpportunitiesTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')
+                    ->searchable(),
                 TextColumn::make('account.name')
                     ->searchable(),
                 TextColumn::make('contact.full_name')
                     ->state(fn ($record): ?string => $record->contact?->full_name)
 ,
-                TextColumn::make('owner.name')
-                    ->searchable(),
-                TextColumn::make('name')
-                    ->searchable(),
                 TextColumn::make('stage')
                     ->badge()
                     ->searchable(),

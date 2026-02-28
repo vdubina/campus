@@ -17,20 +17,12 @@ class ContactsTable
     {
         return $table
             ->columns([
-                TextColumn::make('account.name')
-                    ->searchable(),
-                TextColumn::make('owner.name')
-                    ->searchable(),
                 TextColumn::make('full_name')
                     ->state(fn ($record): string => $record->full_name)
                     ->searchable(['first_name', 'last_name']),
+                TextColumn::make('account.name')
+                    ->searchable(),
                 TextColumn::make('title')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                TextColumn::make('mobile')
                     ->searchable(),
                 IconColumn::make('is_primary')
                     ->boolean(),

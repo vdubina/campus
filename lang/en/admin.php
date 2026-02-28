@@ -29,7 +29,7 @@ return [
         'title' => 'Calendar',
         'subtitle' => 'Leads follow-up schedule for the next 7 days (hourly view).',
         'time' => 'Time',
-        'account' => 'Account',
+        'account' => 'Company',
         'owner' => 'Owner',
         'status' => 'Status',
         'empty' => 'No leads',

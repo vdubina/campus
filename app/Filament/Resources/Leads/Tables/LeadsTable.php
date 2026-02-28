@@ -15,24 +15,20 @@ class LeadsTable
     {
         return $table
             ->columns([
-                TextColumn::make('account.name')
-                    ->searchable(),
-                TextColumn::make('owner.name')
-                    ->searchable(),
                 TextColumn::make('full_name')
                     ->state(fn ($record): string => $record->full_name)
                     ->searchable(['first_name', 'last_name']),
-                TextColumn::make('email')
-                    ->searchable(),
-                TextColumn::make('phone')
+                TextColumn::make('account.name')
                     ->searchable(),
                 TextColumn::make('source')
                     ->searchable(),
                 TextColumn::make('status')
                     ->badge()
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('rating')
                     ->badge()
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('estimated_value')
                     ->numeric()
