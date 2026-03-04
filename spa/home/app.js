@@ -1,5 +1,8 @@
 (() => {
   const localeToggle = document.getElementById('locale-toggle');
+  const menuToggle = document.getElementById('menu-toggle');
+  const rightTools = document.querySelector('.right-tools');
+  const menuRoot = document.getElementById('menu');
   const modal = document.getElementById('enroll-modal');
   const modalBackdrop = document.getElementById('enroll-backdrop');
   const modalClose = document.getElementById('enroll-close');
@@ -9,6 +12,17 @@
   const savedLocale = localStorage.getItem('home_locale');
   let locale = savedLocale || 'uk';
   let activeCourseTitle = '';
+
+  const setMenuOpen = (isOpen) => {
+    if (!rightTools || !menuToggle) return;
+    rightTools.classList.toggle('is-menu-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+
+  const toggleMenu = () => {
+    if (!rightTools) return;
+    setMenuOpen(!rightTools.classList.contains('is-menu-open'));
+  };
 
   const setText = (id, value) => {
     const el = document.getElementById(id);
@@ -296,6 +310,15 @@
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
 
+    if (target === menuToggle) {
+      toggleMenu();
+      return;
+    }
+
+    if (menuRoot && target.closest('#menu a')) {
+      setMenuOpen(false);
+    }
+
     const enrollButton = target.closest('.course-cta');
     if (enrollButton instanceof HTMLElement && enrollButton.dataset.courseTitle) {
       openModal(decodeURIComponent(enrollButton.dataset.courseTitle));
@@ -309,7 +332,14 @@
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+      setMenuOpen(false);
       closeModal();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) {
+      setMenuOpen(false);
     }
   });
 
